@@ -1,0 +1,256 @@
+openapi: 3.0.3
+info:
+  title: bit.com v1 API (Matrixport) Account Order API
+  version: 1.0.0
+  description: 'Public v1 REST API for the bit.com exchange (a Matrixport venue): spot, USD-M and COIN-M futures, perpetuals, options, and block trades. Derived from the official bitcom-exchange SDK endpoint constants; paths, HTTP methods, operationIds and the access-key + HMAC-SHA256 auth model are authoritative. Request/response field schemas are documented at https://www.bit.com/docs and are intentionally left generic here (data payload untyped) to avoid fabrication.'
+  contact:
+    name: bit.com API docs
+    url: https://www.bit.com/docs/en-us/spot.html
+  x-source: https://github.com/bitcom-exchange/bitcom-go-api (constant/rest_api_url.go)
+servers:
+- url: https://api.bit.com
+  description: Production
+- url: https://betaapi.bitexch.dev
+  description: Testnet
+tags:
+- name: Order
+paths:
+  /v1/orders:
+    post:
+      operationId: newOrder
+      summary: Place a new order
+      tags:
+      - Order
+      security:
+      - ApiKeyAuth: []
+        ApiTimestamp: []
+        ApiSignature: []
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+    get:
+      operationId: getOrders
+      summary: Query orders
+      tags:
+      - Order
+      security:
+      - ApiKeyAuth: []
+        ApiTimestamp: []
+        ApiSignature: []
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/cancel_orders:
+    post:
+      operationId: cancelOrders
+      summary: Cancel orders
+      tags:
+      - Order
+      security:
+      - ApiKeyAuth: []
+        ApiTimestamp: []
+        ApiSignature: []
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/amend_orders:
+    post:
+      operationId: amendOrders
+      summary: Amend orders
+      tags:
+      - Order
+      security:
+      - ApiKeyAuth: []
+        ApiTimestamp: []
+        ApiSignature: []
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/close_positions:
+    post:
+      operationId: closePositions
+      summary: Close positions
+      tags:
+      - Order
+      security:
+      - ApiKeyAuth: []
+        ApiTimestamp: []
+        ApiSignature: []
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/open_orders:
+    get:
+      operationId: getOpenOrders
+      summary: Query open orders
+      tags:
+      - Order
+      security:
+      - ApiKeyAuth: []
+        ApiTimestamp: []
+        ApiSignature: []
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/stop_orders:
+    get:
+      operationId: getStopOrders
+      summary: Query stop orders
+      tags:
+      - Order
+      security:
+      - ApiKeyAuth: []
+        ApiTimestamp: []
+        ApiSignature: []
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/user/trades:
+    get:
+      operationId: getUserTrades
+      summary: Query user trades
+      tags:
+      - Order
+      security:
+      - ApiKeyAuth: []
+        ApiTimestamp: []
+        ApiSignature: []
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/margins:
+    get:
+      operationId: getEstMargins
+      summary: Estimate order margins
+      tags:
+      - Order
+      security:
+      - ApiKeyAuth: []
+        ApiTimestamp: []
+        ApiSignature: []
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+components:
+  schemas:
+    Envelope:
+      type: object
+      description: Standard bit.com response envelope.
+      properties:
+        code:
+          type: integer
+          description: 0 on success; non-zero error code otherwise
+        message:
+          type: string
+          description: Human-readable message; empty on success
+        data:
+          description: Endpoint-specific payload; see https://www.bit.com/docs
+      required:
+      - code
+      - message
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Bit-Access-Key
+      description: Account access key
+    ApiTimestamp:
+      type: apiKey
+      in: query
+      name: timestamp
+      description: Request timestamp (ms) included in the signed payload
+    ApiSignature:
+      type: apiKey
+      in: query
+      name: signature
+      description: HMAC-SHA256 signature of the sorted request parameters using the account secret key

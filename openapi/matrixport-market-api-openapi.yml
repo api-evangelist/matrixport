@@ -1,0 +1,259 @@
+openapi: 3.0.3
+info:
+  title: bit.com v1 API (Matrixport) Account Market API
+  version: 1.0.0
+  description: 'Public v1 REST API for the bit.com exchange (a Matrixport venue): spot, USD-M and COIN-M futures, perpetuals, options, and block trades. Derived from the official bitcom-exchange SDK endpoint constants; paths, HTTP methods, operationIds and the access-key + HMAC-SHA256 auth model are authoritative. Request/response field schemas are documented at https://www.bit.com/docs and are intentionally left generic here (data payload untyped) to avoid fabrication.'
+  contact:
+    name: bit.com API docs
+    url: https://www.bit.com/docs/en-us/spot.html
+  x-source: https://github.com/bitcom-exchange/bitcom-go-api (constant/rest_api_url.go)
+servers:
+- url: https://api.bit.com
+  description: Production
+- url: https://betaapi.bitexch.dev
+  description: Testnet
+tags:
+- name: Market
+paths:
+  /v1/index:
+    get:
+      operationId: getIndex
+      summary: Get index price
+      tags:
+      - Market
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/instruments:
+    get:
+      operationId: getInstruments
+      summary: List tradable instruments
+      tags:
+      - Market
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/tickers:
+    get:
+      operationId: getTickers
+      summary: Get ticker(s)
+      tags:
+      - Market
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/orderbooks:
+    get:
+      operationId: getOrderbooks
+      summary: Get order book depth
+      tags:
+      - Market
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/market/trades:
+    get:
+      operationId: getMarketTrades
+      summary: Get recent public market trades
+      tags:
+      - Market
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/klines:
+    get:
+      operationId: getKlines
+      summary: Get candlestick (kline) data
+      tags:
+      - Market
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/delivery_info:
+    get:
+      operationId: getDeliveryInfo
+      summary: Get delivery information
+      tags:
+      - Market
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/market/summary:
+    get:
+      operationId: getMarketSummary
+      summary: Get market summary
+      tags:
+      - Market
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/funding_rate:
+    get:
+      operationId: getFundingRate
+      summary: Get current funding rate
+      tags:
+      - Market
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/funding_rate_history:
+    get:
+      operationId: getFundingRateHistory
+      summary: Get funding rate history
+      tags:
+      - Market
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/total_volumes:
+    get:
+      operationId: getTotalVolumes
+      summary: Get total traded volumes
+      tags:
+      - Market
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+components:
+  schemas:
+    Envelope:
+      type: object
+      description: Standard bit.com response envelope.
+      properties:
+        code:
+          type: integer
+          description: 0 on success; non-zero error code otherwise
+        message:
+          type: string
+          description: Human-readable message; empty on success
+        data:
+          description: Endpoint-specific payload; see https://www.bit.com/docs
+      required:
+      - code
+      - message
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Bit-Access-Key
+      description: Account access key
+    ApiTimestamp:
+      type: apiKey
+      in: query
+      name: timestamp
+      description: Request timestamp (ms) included in the signed payload
+    ApiSignature:
+      type: apiKey
+      in: query
+      name: signature
+      description: HMAC-SHA256 signature of the sorted request parameters using the account secret key

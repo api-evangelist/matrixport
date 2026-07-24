@@ -1,0 +1,279 @@
+openapi: 3.0.3
+info:
+  title: bit.com v1 API (Matrixport) Account API
+  version: 1.0.0
+  description: 'Public v1 REST API for the bit.com exchange (a Matrixport venue): spot, USD-M and COIN-M futures, perpetuals, options, and block trades. Derived from the official bitcom-exchange SDK endpoint constants; paths, HTTP methods, operationIds and the access-key + HMAC-SHA256 auth model are authoritative. Request/response field schemas are documented at https://www.bit.com/docs and are intentionally left generic here (data payload untyped) to avoid fabrication.'
+  contact:
+    name: bit.com API docs
+    url: https://www.bit.com/docs/en-us/spot.html
+  x-source: https://github.com/bitcom-exchange/bitcom-go-api (constant/rest_api_url.go)
+servers:
+- url: https://api.bit.com
+  description: Production
+- url: https://betaapi.bitexch.dev
+  description: Testnet
+tags:
+- name: Account
+paths:
+  /v1/accounts:
+    get:
+      operationId: getAccounts
+      summary: Get account balances
+      tags:
+      - Account
+      security:
+      - ApiKeyAuth: []
+        ApiTimestamp: []
+        ApiSignature: []
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/positions:
+    get:
+      operationId: getPositions
+      summary: Get open positions
+      tags:
+      - Account
+      security:
+      - ApiKeyAuth: []
+        ApiTimestamp: []
+        ApiSignature: []
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/transactions:
+    get:
+      operationId: getTransactionLogs
+      summary: Get account transaction logs
+      tags:
+      - Account
+      security:
+      - ApiKeyAuth: []
+        ApiTimestamp: []
+        ApiSignature: []
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/user/deliveries:
+    get:
+      operationId: getUserDeliveries
+      summary: Get user deliveries
+      tags:
+      - Account
+      security:
+      - ApiKeyAuth: []
+        ApiTimestamp: []
+        ApiSignature: []
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/user/settlements:
+    get:
+      operationId: getUserSettlements
+      summary: Get user settlements
+      tags:
+      - Account
+      security:
+      - ApiKeyAuth: []
+        ApiTimestamp: []
+        ApiSignature: []
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/account_configs/cod:
+    post:
+      operationId: configCod
+      summary: Configure cancel-on-disconnect (COD)
+      tags:
+      - Account
+      security:
+      - ApiKeyAuth: []
+        ApiTimestamp: []
+        ApiSignature: []
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+    get:
+      operationId: getCodConfig
+      summary: Get cancel-on-disconnect (COD) config
+      tags:
+      - Account
+      security:
+      - ApiKeyAuth: []
+        ApiTimestamp: []
+        ApiSignature: []
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/mmp_state:
+    get:
+      operationId: getMmpState
+      summary: Get market-maker-protection (MMP) state
+      tags:
+      - Account
+      security:
+      - ApiKeyAuth: []
+        ApiTimestamp: []
+        ApiSignature: []
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/update_mmp_config:
+    post:
+      operationId: updateMmpConfig
+      summary: Update MMP configuration
+      tags:
+      - Account
+      security:
+      - ApiKeyAuth: []
+        ApiTimestamp: []
+        ApiSignature: []
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v1/reset_mmp:
+    post:
+      operationId: resetMmpState
+      summary: Reset MMP state
+      tags:
+      - Account
+      security:
+      - ApiKeyAuth: []
+        ApiTimestamp: []
+        ApiSignature: []
+      responses:
+        '200':
+          description: Standard bit.com response envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        4XX:
+          description: Error response envelope (non-zero code)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+components:
+  schemas:
+    Envelope:
+      type: object
+      description: Standard bit.com response envelope.
+      properties:
+        code:
+          type: integer
+          description: 0 on success; non-zero error code otherwise
+        message:
+          type: string
+          description: Human-readable message; empty on success
+        data:
+          description: Endpoint-specific payload; see https://www.bit.com/docs
+      required:
+      - code
+      - message
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Bit-Access-Key
+      description: Account access key
+    ApiTimestamp:
+      type: apiKey
+      in: query
+      name: timestamp
+      description: Request timestamp (ms) included in the signed payload
+    ApiSignature:
+      type: apiKey
+      in: query
+      name: signature
+      description: HMAC-SHA256 signature of the sorted request parameters using the account secret key
