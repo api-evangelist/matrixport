@@ -1,8 +1,26 @@
 aid: matrixport
 name: Matrixport
-description: 'Matrixport is a company surfaced as a portfolio company of paradigm, polychain, qiming and
-  added to the API Evangelist network as a stub for enrichment. Sector: crypto-finance. This profile is
-  a lead awaiting the enrichment pipeline.'
+description: 'Matrixport is a digital-asset financial services firm whose trading and derivatives
+  venue, bit.com, exposes a public v1 REST and WebSocket API for spot, USD-margined (USD-M) and
+  coin-margined (COIN-M) futures, perpetual swaps, and options, plus Paradigm-style block trades.
+  The API authenticates with an access key and HMAC-SHA256 request signing, and covers market
+  data (index, instruments, tickers, orderbooks, klines, funding), account, position, and full
+  order-management (new/amend/cancel/close, batch orders, stop orders, MMP). First-party SDKs are
+  published for Go, Python, and Java. Added to the API Evangelist network as a crypto-finance
+  provider and enriched from its public developer surface and official SDK repositories.'
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.bit.com/favicon.ico
 url: https://raw.githubusercontent.com/api-evangelist/matrixport/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -14,16 +32,167 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
 - Crypto Finance
-apis: []
+- Cryptocurrency Exchange
+- Trading
+- Derivatives
+- Options
+- Futures
+- Perpetuals
+- WebSocket
+- REST API
+apis:
+- aid: matrixport:matrixport-account-api
+  name: Matrixport Account API
+  description: The Account API from Matrixport — 9 operation(s) for account.
+  humanURL: https://www.bit.com/docs/en-us/spot.html
+  baseURL: https://api.bit.com
+  tags:
+  - Account
+  properties:
+  - type: OpenAPI
+    url: openapi/matrixport-account-api-openapi.yml
+  - type: Documentation
+    url: https://www.bit.com/docs/en-us/spot.html
+  - type: APIReference
+    url: https://www.bit.com/docs/en-us/futures.html
+- aid: matrixport:matrixport-batch-orders-api
+  name: Matrixport Batch Orders API
+  description: The Batch Orders API from Matrixport — 2 operation(s) for batch orders.
+  humanURL: https://www.bit.com/docs/en-us/spot.html
+  baseURL: https://api.bit.com
+  tags:
+  - Batch Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/matrixport-batch-orders-api-openapi.yml
+  - type: Documentation
+    url: https://www.bit.com/docs/en-us/spot.html
+  - type: APIReference
+    url: https://www.bit.com/docs/en-us/futures.html
+- aid: matrixport:matrixport-block-trade-api
+  name: Matrixport Block Trade API
+  description: The Block Trade API from Matrixport — 2 operation(s) for block trade.
+  humanURL: https://www.bit.com/docs/en-us/spot.html
+  baseURL: https://api.bit.com
+  tags:
+  - Block Trade
+  properties:
+  - type: OpenAPI
+    url: openapi/matrixport-block-trade-api-openapi.yml
+  - type: Documentation
+    url: https://www.bit.com/docs/en-us/spot.html
+  - type: APIReference
+    url: https://www.bit.com/docs/en-us/futures.html
+- aid: matrixport:matrixport-market-api
+  name: Matrixport Market API
+  description: The Market API from Matrixport — 11 operation(s) for market.
+  humanURL: https://www.bit.com/docs/en-us/spot.html
+  baseURL: https://api.bit.com
+  tags:
+  - Market
+  properties:
+  - type: OpenAPI
+    url: openapi/matrixport-market-api-openapi.yml
+  - type: Documentation
+    url: https://www.bit.com/docs/en-us/spot.html
+  - type: APIReference
+    url: https://www.bit.com/docs/en-us/futures.html
+- aid: matrixport:matrixport-order-api
+  name: Matrixport Order API
+  description: The Order API from Matrixport — 8 operation(s) for order.
+  humanURL: https://www.bit.com/docs/en-us/spot.html
+  baseURL: https://api.bit.com
+  tags:
+  - Order
+  properties:
+  - type: OpenAPI
+    url: openapi/matrixport-order-api-openapi.yml
+  - type: Documentation
+    url: https://www.bit.com/docs/en-us/spot.html
+  - type: APIReference
+    url: https://www.bit.com/docs/en-us/futures.html
+- aid: matrixport:matrixport-system-api
+  name: Matrixport System API
+  description: The System API from Matrixport — 3 operation(s) for system.
+  humanURL: https://www.bit.com/docs/en-us/spot.html
+  baseURL: https://api.bit.com
+  tags:
+  - System
+  properties:
+  - type: OpenAPI
+    url: openapi/matrixport-system-api-openapi.yml
+  - type: Documentation
+    url: https://www.bit.com/docs/en-us/spot.html
+  - type: APIReference
+    url: https://www.bit.com/docs/en-us/futures.html
+- aid: matrixport:matrixport-websocket-api
+  name: Matrixport WebSocket API
+  description: The WebSocket API from Matrixport — 1 operation(s) for websocket.
+  humanURL: https://www.bit.com/docs/en-us/spot.html
+  baseURL: https://api.bit.com
+  tags:
+  - WebSocket
+  properties:
+  - type: OpenAPI
+    url: openapi/matrixport-websocket-api-openapi.yml
+  - type: Documentation
+    url: https://www.bit.com/docs/en-us/spot.html
+  - type: APIReference
+    url: https://www.bit.com/docs/en-us/futures.html
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgenticAccess
+  url: agentic-access/matrixport-agentic-access.yml
 - type: Website
-  url: https://www.matrixport.com
+  url: https://www.bit.com
+- type: Documentation
+  url: https://www.bit.com/docs/en-us/spot.html
+- type: APIReference
+  url: https://www.bit.com/docs/en-us/futures.html
+- type: GitHubOrganization
+  url: https://github.com/bitcom-exchange
+- type: ChangeLog
+  url: https://www.bit.com/docs/en-us/change_log.html
+- type: Packages
+  url: packages/matrixport-packages.yml
+- type: SDKs
+  url: packages/matrixport-packages.yml
+- type: Authentication
+  url: authentication/matrixport-authentication.yml
+- type: Conventions
+  url: conventions/matrixport-conventions.yml
+- type: Lifecycle
+  url: lifecycle/matrixport-lifecycle.yml
+- type: Conformance
+  url: conformance/matrixport-conformance.yml
+- type: WellKnown
+  url: well-known/matrixport-well-known.yml
+- type: DomainSecurity
+  url: security/matrixport-domain-security.yml
+- type: MCPServer
+  url: mcp/matrixport-mcp.yml
+- type: LLMsTxt
+  url: llms/matrixport-llms.txt
+- type: Webhooks
+  url: asyncapi/matrixport-websocket.yml
+- type: AsyncAPI
+  url: asyncapi/matrixport-websocket.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: ErrorCatalog
+  url: errors/matrixport-problem-types.yml
+- type: DataModel
+  url: data-model/matrixport-data-model.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 18
+  pass: local-v1
