@@ -1,0 +1,60 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/matrixport-bitcom-openapi.yml
+notes: >-
+  Entity graph derived from the v1 operation surface and domain nouns (the OpenAPI leaves the data
+  payload untyped, so relationships are inferred from the endpoints that read/write each entity and
+  from bit.com's documented model, not from $ref links). instrument_id is the primary correlation
+  key across market, order, position, and trade entities.
+entities:
+- name: instrument
+  description: A tradable market (spot pair, future, perpetual, or option), keyed by instrument_id.
+  key: instrument_id
+  read_via: [getInstruments, getTickers, getOrderbooks, getIndex]
+- name: order
+  description: A working or historical order placed by the account.
+  read_via: [getOrders, getOpenOrders, getStopOrders]
+  write_via: [newOrder, amendOrders, cancelOrders, newBatchOrders, amendBatchOrders]
+- name: position
+  description: An open derivatives position for an instrument.
+  read_via: [getPositions]
+  write_via: [closePositions]
+- name: trade
+  description: An executed fill against the account's orders.
+  read_via: [getUserTrades]
+- name: account
+  description: The account's balances, margin, and configuration.
+  read_via: [getAccounts, getTransactionLogs, getMmpState, getCodConfig]
+- name: block_trade
+  description: A Paradigm/platform block trade.
+  read_via: [queryParadigmBlockOrders, queryBlockOrdersByPlatform]
+  write_via: [newParadigmBlockOrders]
+relationships:
+- from: order
+  to: instrument
+  type: belongs_to
+  via: instrument_id
+- from: position
+  to: instrument
+  type: belongs_to
+  via: instrument_id
+- from: trade
+  to: order
+  type: belongs_to
+  via: order_id
+- from: trade
+  to: instrument
+  type: belongs_to
+  via: instrument_id
+- from: position
+  to: account
+  type: belongs_to
+  via: account
+- from: order
+  to: account
+  type: belongs_to
+  via: account
+- from: block_trade
+  to: instrument
+  type: has_many
+  via: instrument_id

@@ -1,0 +1,38 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.bit.com/docs/en-us/spot.html#authentication
+sdk_source: https://github.com/bitcom-exchange/bitcom-go-api
+docs: https://www.bit.com/docs/en-us/spot.html
+summary:
+  types: [apiKey]
+  api_key_in: [header, query]
+  oauth2_flows: []
+  model: >-
+    Access-key + HMAC-SHA256 request signing. Each private request carries the account access key,
+    a millisecond timestamp, and a signature computed by HMAC-SHA256 over the sorted request
+    parameters using the account secret key. Public market-data endpoints require no auth. API keys
+    (access key + secret key) are created in the bit.com account console.
+schemes:
+- name: ApiKeyAuth
+  type: apiKey
+  in: header
+  parameter: X-Bit-Access-Key
+  description: Account access key identifying the caller.
+  sources: [openapi/matrixport-bitcom-openapi.yml]
+- name: ApiTimestamp
+  type: apiKey
+  in: query
+  parameter: timestamp
+  description: Millisecond request timestamp included in the signed payload (guards against replay).
+  sources: [openapi/matrixport-bitcom-openapi.yml]
+- name: ApiSignature
+  type: apiKey
+  in: query
+  parameter: signature
+  description: HMAC-SHA256 signature over the sorted request parameters, keyed with the account secret key.
+  sources: [openapi/matrixport-bitcom-openapi.yml]
+websocket_auth:
+  endpoint: /v1/ws/auth
+  description: >-
+    Private WebSocket channels (order, user_trade, um_account) are authenticated with a token
+    obtained from GET /v1/ws/auth, then sent in the subscribe message on wss://ws.bit.com.

@@ -1,0 +1,32 @@
+# Matrixport (bit.com)
+
+> Matrixport is a digital-asset financial services firm whose trading and derivatives venue, bit.com, exposes a public v1 REST and WebSocket API for spot, USD-margined (USD-M) and coin-margined (COIN-M) futures, perpetual swaps, options, and Paradigm-style block trades. Authentication is access-key + HMAC-SHA256 request signing. First-party SDKs are published for Go, Python, and Java.
+
+## APIs
+- [bit.com v1 API docs](https://www.bit.com/docs/en-us/spot.html): Spot, futures, options, and block-trade REST + WebSocket reference.
+- [Futures API docs](https://www.bit.com/docs/en-us/futures.html): USD-M / COIN-M futures and perpetuals, including API hosts.
+- Production REST base URL: https://api.bit.com
+- Testnet REST base URL: https://betaapi.bitexch.dev
+- Production WebSocket: wss://ws.bit.com  (testnet wss://betaws.bitexch.dev)
+
+## Specs
+- [OpenAPI (derived from official SDK)](openapi/matrixport-bitcom-openapi.yml): 39 v1 operations across System, Market, Account, Order, Batch Orders, Block Trade, WebSocket auth.
+- [WebSocket / AsyncAPI channels](asyncapi/matrixport-websocket.yml): public (ticker, order_book, trade, kline) and private (order, user_trade, um_account) channels.
+
+## Artifacts
+- [Authentication](authentication/matrixport-authentication.yml): access-key + HMAC-SHA256 signing model.
+- [Conventions](conventions/matrixport-conventions.yml): versioning, error envelope, order semantics, streaming.
+- [Error envelope](errors/matrixport-problem-types.yml): { code, message, data } (code 0 = success).
+- [Lifecycle](lifecycle/matrixport-lifecycle.yml): v1 versioning + change log.
+- [Conformance](conformance/matrixport-conformance.yml): standards posture.
+- [Packages / SDKs](packages/matrixport-packages.yml): Go, Python (umapi + legacy COIN-M), Java.
+
+## SDKs
+- [Go SDK](https://github.com/bitcom-exchange/bitcom-go-api)
+- [Python SDK (SPOT + USD-M)](https://github.com/bitcom-exchange/bitcom-python-umapi)
+- [Java SDK](https://github.com/bitcom-exchange/bitcom-java-api-v1)
+
+## Docs
+- [Change log](https://www.bit.com/docs/en-us/change_log.html)
+- [GitHub organization](https://github.com/bitcom-exchange)
+- [Website](https://www.bit.com)

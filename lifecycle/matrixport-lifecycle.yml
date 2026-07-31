@@ -1,0 +1,21 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.bit.com/docs/en-us/change_log.html
+notes: >-
+  Versioning and change history for the bit.com (Matrixport) v1 API. A dated change log is
+  published in the docs. No separate SLA/uptime page or public status page (status.bit.com) was
+  confirmed from the probe network, and no formal deprecation/Sunset-header policy was found, so
+  StatusPage and Deprecation pointers are not asserted.
+versioning:
+  scheme: uri-path
+  current: v1
+  docs: https://www.bit.com/docs/en-us/spot.html
+change_log:
+  url: https://www.bit.com/docs/en-us/change_log.html
+deprecation:
+  policy_url: null
+  sunset_header: false
+sla:
+  url: null
+status_page: null
+deprecated_operations: []

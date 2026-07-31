@@ -1,0 +1,45 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.bit.com/docs/en-us/spot.html
+sdk_source: https://github.com/bitcom-exchange/bitcom-go-api
+notes: >-
+  Cross-cutting request/response semantics for the bit.com (Matrixport) v1 API, captured from the
+  public docs and the official SDKs. No documented Idempotency-Key header was found; orders instead
+  accept a client-supplied label for correlation. Idempotency pointer is therefore NOT asserted.
+authentication:
+  style: access-key + HMAC-SHA256 signature
+  see: authentication/matrixport-authentication.yml
+versioning:
+  scheme: uri-path
+  current: v1
+  detail: All endpoints are namespaced under /v1/.
+base_urls:
+  production_rest: https://api.bit.com
+  testnet_rest: https://betaapi.bitexch.dev
+  production_ws: wss://ws.bit.com
+  testnet_ws: wss://betaws.bitexch.dev
+error_envelope:
+  shape: '{ "code": <int>, "message": <string>, "data": <payload> }'
+  success: code == 0
+  failure: non-zero code with a descriptive message
+  see: errors/matrixport-error-codes.yml
+pagination:
+  style: cursor / paginated list endpoints accept count plus time-window filters
+  note: Exact parameter names are per-endpoint; see https://www.bit.com/docs.
+request_correlation:
+  client_order_id: label (optional, supplied on order placement for client-side correlation)
+order_semantics:
+  types: [limit, market, stop-limit, stop-market]
+  time_in_force: [gtc, fok, ioc]
+  batch: /v1/batchorders and /v1/amend_batchorders support batched operations
+risk_controls:
+  cancel_on_disconnect: /v1/account_configs/cod
+  market_maker_protection: /v1/mmp_state, /v1/update_mmp_config, /v1/reset_mmp
+streaming:
+  transport: WebSocket
+  public_channels: [ticker, order_book, trade, kline]
+  private_channels: [order, user_trade, um_account]
+  see: asyncapi/matrixport-websocket.yml
+rate_limit_signaling:
+  note: bit.com enforces per-endpoint rate limits documented at https://www.bit.com/docs; limit
+    counts are not machine-readable in a published spec.

@@ -1,0 +1,12 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/matrixport-bitcom-openapi.yml
+skills:
+- file: matrixport-place-and-manage-order.md
+  name: Place and manage an order on bit.com
+  api: openapi/matrixport-bitcom-openapi.yml
+  operations: [getInstruments, newOrder, getOpenOrders, getUserTrades, cancelOrders]
+- file: matrixport-stream-market-data.md
+  name: Stream bit.com market data and account events
+  api: openapi/matrixport-bitcom-openapi.yml
+  operations: [getTickers, getOrderbooks, getWsAuthToken]

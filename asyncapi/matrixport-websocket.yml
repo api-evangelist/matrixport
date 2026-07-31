@@ -1,0 +1,65 @@
+generated: '2026-07-20'
+method: searched
+source: https://github.com/bitcom-exchange/bitcom-python-umapi
+spec_type: AsyncAPI
+asyncapi: '2.6.0'
+info:
+  title: bit.com (Matrixport) WebSocket streaming API
+  version: '1.0.0'
+  description: >-
+    Public and private WebSocket streaming for the bit.com exchange. Channel names are taken
+    verbatim from the official bitcom-python-umapi SDK (bit_ws_public.py / bit_ws_private.py).
+    Clients connect and send a { "type": "subscribe", "channels": [ ... ] } message. Private
+    channels require a token from GET /v1/ws/auth.
+servers:
+  production:
+    url: ws.bit.com
+    protocol: wss
+    description: Production WebSocket host (wss://ws.bit.com; spot-ws.bit.com for spot).
+  testnet:
+    url: betaws.bitexch.dev
+    protocol: wss
+    description: Testnet WebSocket host.
+channels:
+  ticker:
+    description: Instrument ticker updates (public).
+    subscribe:
+      message:
+        name: ticker
+        summary: Best bid/ask, last price and stats for an instrument.
+  order_book:
+    description: 'Order book depth updates (public); subscribe form: order_book.<depth>.<interval>, e.g. order_book.10.10.'
+    subscribe:
+      message:
+        name: order_book
+        summary: Level-based order book snapshot/updates.
+  trade:
+    description: Public trade prints (public).
+    subscribe:
+      message:
+        name: trade
+        summary: Executed public market trades.
+  kline:
+    description: Candlestick updates (public).
+    subscribe:
+      message:
+        name: kline
+        summary: OHLCV candles per interval.
+  order:
+    description: The authenticated user's order updates (private; requires ws auth token).
+    subscribe:
+      message:
+        name: order
+        summary: Lifecycle updates for the user's orders.
+  user_trade:
+    description: The authenticated user's fills (private; requires ws auth token).
+    subscribe:
+      message:
+        name: user_trade
+        summary: Trade executions for the user.
+  um_account:
+    description: The authenticated user's unified-margin account/balance updates (private).
+    subscribe:
+      message:
+        name: um_account
+        summary: Account balance and margin state changes.

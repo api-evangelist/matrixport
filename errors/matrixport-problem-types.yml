@@ -1,0 +1,30 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/matrixport-bitcom-openapi.yml
+format: envelope
+notes: >-
+  bit.com does not use RFC 9457 problem+json; every response (success and error) uses the standard
+  envelope { code, message, data }. A success is code == 0; any non-zero code is an error whose
+  meaning is given by message. The full numeric error-code registry is published in the docs
+  (https://www.bit.com/docs) but is client-rendered and not machine-captured here. The entries below
+  are the derived HTTP-level error classes shared by every signed operation.
+envelope:
+  code: integer (0 = success, non-zero = error)
+  message: string (human-readable description)
+  data: endpoint-specific payload (null/empty on error)
+problems:
+- status: 400
+  title: Bad request
+  description: Malformed parameters or invalid order fields.
+- status: 401
+  title: Unauthorized
+  description: Missing/invalid access key, timestamp, or HMAC-SHA256 signature.
+- status: 403
+  title: Forbidden
+  description: Authenticated key lacks permission for the operation.
+- status: 429
+  title: Rate limited
+  description: Per-endpoint rate limit exceeded.
+- status: 500
+  title: Server error
+  description: Unexpected server-side error.

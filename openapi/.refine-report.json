@@ -1,0 +1,26 @@
+{
+  "provider": "matrixport",
+  "sources": [
+    "matrixport-account-api-openapi.yml",
+    "matrixport-batch-orders-api-openapi.yml",
+    "matrixport-block-trade-api-openapi.yml",
+    "matrixport-market-api-openapi.yml",
+    "matrixport-order-api-openapi.yml",
+    "matrixport-system-api-openapi.yml",
+    "matrixport-websocket-api-openapi.yml"
+  ],
+  "outputs": [
+    "matrixport-account-api-openapi.yml",
+    "matrixport-batch-orders-api-openapi.yml",
+    "matrixport-block-trade-api-openapi.yml",
+    "matrixport-market-api-openapi.yml",
+    "matrixport-order-api-openapi.yml",
+    "matrixport-system-api-openapi.yml",
+    "matrixport-websocket-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

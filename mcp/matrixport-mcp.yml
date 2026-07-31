@@ -1,0 +1,57 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/matrixport-bitcom-openapi.yml
+notes: >-
+  No official hosted/remote MCP server was found for bit.com/Matrixport. This is a candidate tool
+  surface derived one-to-one from the v1 OpenAPI operations, for building an MCP server against the
+  API. Read tools map to public/market/account GETs; write tools map to signed order operations.
+server:
+  name: matrixport-bitcom
+  transport: http
+tools:
+- name: get_server_timestamp
+  description: Get server timestamp.
+  source_operation: openapi/matrixport-bitcom-openapi.yml#getServerTimestamp
+- name: get_instruments
+  description: List tradable instruments.
+  source_operation: openapi/matrixport-bitcom-openapi.yml#getInstruments
+- name: get_tickers
+  description: Get ticker(s) for instruments.
+  source_operation: openapi/matrixport-bitcom-openapi.yml#getTickers
+- name: get_orderbooks
+  description: Get order book depth.
+  source_operation: openapi/matrixport-bitcom-openapi.yml#getOrderbooks
+- name: get_market_trades
+  description: Get recent public market trades.
+  source_operation: openapi/matrixport-bitcom-openapi.yml#getMarketTrades
+- name: get_klines
+  description: Get candlestick (kline) data.
+  source_operation: openapi/matrixport-bitcom-openapi.yml#getKlines
+- name: get_funding_rate
+  description: Get current funding rate.
+  source_operation: openapi/matrixport-bitcom-openapi.yml#getFundingRate
+- name: get_accounts
+  description: Get account balances (signed).
+  source_operation: openapi/matrixport-bitcom-openapi.yml#getAccounts
+- name: get_positions
+  description: Get open positions (signed).
+  source_operation: openapi/matrixport-bitcom-openapi.yml#getPositions
+- name: get_open_orders
+  description: Query open orders (signed).
+  source_operation: openapi/matrixport-bitcom-openapi.yml#getOpenOrders
+- name: new_order
+  description: Place a new order (signed).
+  source_operation: openapi/matrixport-bitcom-openapi.yml#newOrder
+- name: cancel_orders
+  description: Cancel orders (signed).
+  source_operation: openapi/matrixport-bitcom-openapi.yml#cancelOrders
+- name: amend_orders
+  description: Amend orders (signed).
+  source_operation: openapi/matrixport-bitcom-openapi.yml#amendOrders
+- name: close_positions
+  description: Close positions (signed).
+  source_operation: openapi/matrixport-bitcom-openapi.yml#closePositions
+- name: get_user_trades
+  description: Query the user's trade fills (signed).
+  source_operation: openapi/matrixport-bitcom-openapi.yml#getUserTrades

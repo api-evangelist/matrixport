@@ -1,0 +1,397 @@
+# generated: '2026-07-20'
+# method: derived
+# source: https://github.com/bitcom-exchange/bitcom-go-api
+openapi: 3.0.3
+info:
+  title: bit.com v1 API (Matrixport)
+  version: 1.0.0
+  description: >-
+    Public v1 REST API for the bit.com exchange (a Matrixport venue): spot, USD-M and COIN-M
+    futures, perpetuals, options, and block trades. Derived from the official bitcom-exchange
+    SDK endpoint constants; paths, HTTP methods, operationIds and the access-key + HMAC-SHA256
+    auth model are authoritative. Request/response field schemas are documented at
+    https://www.bit.com/docs and are intentionally left generic here (data payload untyped)
+    to avoid fabrication.
+  contact:
+    name: bit.com API docs
+    url: https://www.bit.com/docs/en-us/spot.html
+  x-source: https://github.com/bitcom-exchange/bitcom-go-api (constant/rest_api_url.go)
+servers:
+- url: https://api.bit.com
+  description: Production
+- url: https://betaapi.bitexch.dev
+  description: Testnet
+tags:
+- name: System
+- name: Market
+- name: Account
+- name: Order
+- name: Batch Orders
+- name: Block Trade
+- name: WebSocket
+paths:
+  /v1/system/time:
+    get:
+      operationId: getServerTimestamp
+      summary: Get server timestamp
+      tags: [System]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/system/version:
+    get:
+      operationId: getSystemVersion
+      summary: Get system/API version
+      tags: [System]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/system/cancel_only_status:
+    get:
+      operationId: getCancelOnlyStatus
+      summary: Get cancel-only status
+      tags: [System]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/index:
+    get:
+      operationId: getIndex
+      summary: Get index price
+      tags: [Market]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/instruments:
+    get:
+      operationId: getInstruments
+      summary: List tradable instruments
+      tags: [Market]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/tickers:
+    get:
+      operationId: getTickers
+      summary: Get ticker(s)
+      tags: [Market]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/orderbooks:
+    get:
+      operationId: getOrderbooks
+      summary: Get order book depth
+      tags: [Market]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/market/trades:
+    get:
+      operationId: getMarketTrades
+      summary: Get recent public market trades
+      tags: [Market]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/klines:
+    get:
+      operationId: getKlines
+      summary: Get candlestick (kline) data
+      tags: [Market]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/delivery_info:
+    get:
+      operationId: getDeliveryInfo
+      summary: Get delivery information
+      tags: [Market]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/market/summary:
+    get:
+      operationId: getMarketSummary
+      summary: Get market summary
+      tags: [Market]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/funding_rate:
+    get:
+      operationId: getFundingRate
+      summary: Get current funding rate
+      tags: [Market]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/funding_rate_history:
+    get:
+      operationId: getFundingRateHistory
+      summary: Get funding rate history
+      tags: [Market]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/total_volumes:
+    get:
+      operationId: getTotalVolumes
+      summary: Get total traded volumes
+      tags: [Market]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/accounts:
+    get:
+      operationId: getAccounts
+      summary: Get account balances
+      tags: [Account]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/positions:
+    get:
+      operationId: getPositions
+      summary: Get open positions
+      tags: [Account]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/transactions:
+    get:
+      operationId: getTransactionLogs
+      summary: Get account transaction logs
+      tags: [Account]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/user/deliveries:
+    get:
+      operationId: getUserDeliveries
+      summary: Get user deliveries
+      tags: [Account]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/user/settlements:
+    get:
+      operationId: getUserSettlements
+      summary: Get user settlements
+      tags: [Account]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/account_configs/cod:
+    post:
+      operationId: configCod
+      summary: Configure cancel-on-disconnect (COD)
+      tags: [Account]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+    get:
+      operationId: getCodConfig
+      summary: Get cancel-on-disconnect (COD) config
+      tags: [Account]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/mmp_state:
+    get:
+      operationId: getMmpState
+      summary: Get market-maker-protection (MMP) state
+      tags: [Account]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/update_mmp_config:
+    post:
+      operationId: updateMmpConfig
+      summary: Update MMP configuration
+      tags: [Account]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/reset_mmp:
+    post:
+      operationId: resetMmpState
+      summary: Reset MMP state
+      tags: [Account]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/orders:
+    post:
+      operationId: newOrder
+      summary: Place a new order
+      tags: [Order]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+    get:
+      operationId: getOrders
+      summary: Query orders
+      tags: [Order]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/cancel_orders:
+    post:
+      operationId: cancelOrders
+      summary: Cancel orders
+      tags: [Order]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/amend_orders:
+    post:
+      operationId: amendOrders
+      summary: Amend orders
+      tags: [Order]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/close_positions:
+    post:
+      operationId: closePositions
+      summary: Close positions
+      tags: [Order]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/open_orders:
+    get:
+      operationId: getOpenOrders
+      summary: Query open orders
+      tags: [Order]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/stop_orders:
+    get:
+      operationId: getStopOrders
+      summary: Query stop orders
+      tags: [Order]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/user/trades:
+    get:
+      operationId: getUserTrades
+      summary: Query user trades
+      tags: [Order]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/margins:
+    get:
+      operationId: getEstMargins
+      summary: Estimate order margins
+      tags: [Order]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/batchorders:
+    post:
+      operationId: newBatchOrders
+      summary: Place a batch of orders
+      tags: [Batch Orders]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/amend_batchorders:
+    post:
+      operationId: amendBatchOrders
+      summary: Amend a batch of orders
+      tags: [Batch Orders]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/blocktrades:
+    post:
+      operationId: newParadigmBlockOrders
+      summary: Create a Paradigm block trade
+      tags: [Block Trade]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+    get:
+      operationId: queryParadigmBlockOrders
+      summary: Query Paradigm block trades
+      tags: [Block Trade]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/platform_blocktrades:
+    get:
+      operationId: queryBlockOrdersByPlatform
+      summary: Query block trades by platform
+      tags: [Block Trade]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+  /v1/ws/auth:
+    get:
+      operationId: getWsAuthToken
+      summary: Get a WebSocket authentication token
+      tags: [WebSocket]
+      security: [{ ApiKeyAuth: [], ApiTimestamp: [], ApiSignature: [] }]
+      responses:
+        '200': { description: Standard bit.com response envelope, content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+        '4XX': { description: Error response envelope (non-zero code), content: { application/json: { schema: { $ref: '#/components/schemas/Envelope' } } } }
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Bit-Access-Key
+      description: Account access key
+    ApiTimestamp:
+      type: apiKey
+      in: query
+      name: timestamp
+      description: Request timestamp (ms) included in the signed payload
+    ApiSignature:
+      type: apiKey
+      in: query
+      name: signature
+      description: HMAC-SHA256 signature of the sorted request parameters using the account secret key
+  schemas:
+    Envelope:
+      type: object
+      description: Standard bit.com response envelope.
+      properties:
+        code:
+          type: integer
+          description: 0 on success; non-zero error code otherwise
+        message:
+          type: string
+          description: Human-readable message; empty on success
+        data:
+          description: Endpoint-specific payload; see https://www.bit.com/docs
+      required: [code, message]

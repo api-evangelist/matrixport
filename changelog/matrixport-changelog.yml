@@ -1,0 +1,11 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.bit.com/docs/en-us/change_log.html
+notes: >-
+  bit.com publishes a dated change log in its API docs. The page is client-rendered (SPA) and could
+  not be scraped server-side, so individual dated entries are not machine-captured here; the live
+  page is the source of truth for the recent window.
+scheme: dated
+current_version: v1
+url: https://www.bit.com/docs/en-us/change_log.html
+entries: []

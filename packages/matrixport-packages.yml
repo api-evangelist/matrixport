@@ -1,0 +1,37 @@
+generated: '2026-07-20'
+method: searched
+source: https://github.com/bitcom-exchange
+notes: >-
+  First-party client libraries published by the official bitcom-exchange GitHub organization for
+  the bit.com (Matrixport) v1 API. These are source-distributed SDK/demo repositories rather than
+  registry-published packages (no npm/PyPI/Maven artifacts were found); install is via git clone /
+  go get against the repo.
+packages:
+- language: go
+  registry: github
+  name: bitcom-exchange/bitcom-go-api
+  url: https://github.com/bitcom-exchange/bitcom-go-api
+  install: go get github.com/bitcom-exchange/bitcom-go-api
+  official: true
+  description: Lightweight Go library for the bit.com API (REST + WebSocket streaming).
+- language: python
+  registry: github
+  name: bitcom-exchange/bitcom-python-umapi
+  url: https://github.com/bitcom-exchange/bitcom-python-umapi
+  install: git clone https://github.com/bitcom-exchange/bitcom-python-umapi
+  official: true
+  description: Current Python client for SPOT and USD-M (unified margin) systems.
+- language: python
+  registry: github
+  name: bitcom-exchange/bitcom-python-api
+  url: https://github.com/bitcom-exchange/bitcom-python-api
+  install: git clone https://github.com/bitcom-exchange/bitcom-python-api
+  official: true
+  description: Legacy COIN-M Python client (superseded by bitcom-python-umapi).
+- language: java
+  registry: github
+  name: bitcom-exchange/bitcom-java-api-v1
+  url: https://github.com/bitcom-exchange/bitcom-java-api-v1
+  install: git clone https://github.com/bitcom-exchange/bitcom-java-api-v1
+  official: true
+  description: Java (17) API demo for REST and public/private WebSocket.
