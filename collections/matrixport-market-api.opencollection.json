@@ -1,0 +1,139 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "bit.com v1 API (Matrixport) Account Market API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Market",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get index price",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/index"
+          },
+          "docs": "Get index price"
+        },
+        {
+          "info": {
+            "name": "List tradable instruments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/instruments"
+          },
+          "docs": "List tradable instruments"
+        },
+        {
+          "info": {
+            "name": "Get ticker(s)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/tickers"
+          },
+          "docs": "Get ticker(s)"
+        },
+        {
+          "info": {
+            "name": "Get order book depth",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/orderbooks"
+          },
+          "docs": "Get order book depth"
+        },
+        {
+          "info": {
+            "name": "Get recent public market trades",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/market/trades"
+          },
+          "docs": "Get recent public market trades"
+        },
+        {
+          "info": {
+            "name": "Get candlestick (kline) data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/klines"
+          },
+          "docs": "Get candlestick (kline) data"
+        },
+        {
+          "info": {
+            "name": "Get delivery information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/delivery_info"
+          },
+          "docs": "Get delivery information"
+        },
+        {
+          "info": {
+            "name": "Get market summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/market/summary"
+          },
+          "docs": "Get market summary"
+        },
+        {
+          "info": {
+            "name": "Get current funding rate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/funding_rate"
+          },
+          "docs": "Get current funding rate"
+        },
+        {
+          "info": {
+            "name": "Get funding rate history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/funding_rate_history"
+          },
+          "docs": "Get funding rate history"
+        },
+        {
+          "info": {
+            "name": "Get total traded volumes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/total_volumes"
+          },
+          "docs": "Get total traded volumes"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

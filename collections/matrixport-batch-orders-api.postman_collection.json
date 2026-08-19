@@ -1,0 +1,306 @@
+{
+  "item": [
+    {
+      "id": "a6162e1e-32b8-4651-85b4-9b5254ed9ca6",
+      "name": "Batch Orders",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d9d71ec7-dae0-4556-b2cf-7493eb734bb5",
+          "name": "Place a batch of orders",
+          "request": {
+            "name": "Place a batch of orders",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "batchorders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Bit-Access-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e4561646-0262-4526-8ecf-67f33cf69d33",
+              "name": "Standard bit.com response envelope",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "batchorders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Bit-Access-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7048,\n  \"message\": \"string\",\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f8f4a8ab-b6a9-4c12-a5bd-8668536a0c79",
+              "name": "Error response envelope (non-zero code)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "batchorders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Bit-Access-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7048,\n  \"message\": \"string\",\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "865770a8-c85b-45f7-a022-932f2dc1ae01",
+          "name": "Amend a batch of orders",
+          "request": {
+            "name": "Amend a batch of orders",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "amend_batchorders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Bit-Access-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "dca43036-f934-4fee-806f-0e948798c771",
+              "name": "Standard bit.com response envelope",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "amend_batchorders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Bit-Access-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7048,\n  \"message\": \"string\",\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3eadcd9b-7f3c-4c26-92d1-f6daf03fb11d",
+              "name": "Error response envelope (non-zero code)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "amend_batchorders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Bit-Access-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 7048,\n  \"message\": \"string\",\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.bit.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a0bb35eb-f8dd-46ff-b5bd-ae1ae109de23",
+    "name": "bit.com v1 API (Matrixport) Account Batch Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public v1 REST API for the bit.com exchange (a Matrixport venue): spot, USD-M and COIN-M futures, perpetuals, options, and block trades. Derived from the official bitcom-exchange SDK endpoint constants; paths, HTTP methods, operationIds and the access-key + HMAC-SHA256 auth model are authoritative. Request/response field schemas are documented at https://www.bit.com/docs and are intentionally left generic here (data payload untyped) to avoid fabrication.\n\nContact Support:\n Name: bit.com API docs",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "bit.com v1 API (Matrixport) Account System API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "System",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get server timestamp",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/system/time"
+          },
+          "docs": "Get server timestamp"
+        },
+        {
+          "info": {
+            "name": "Get system/API version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/system/version"
+          },
+          "docs": "Get system/API version"
+        },
+        {
+          "info": {
+            "name": "Get cancel-only status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/system/cancel_only_status"
+          },
+          "docs": "Get cancel-only status"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

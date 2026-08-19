@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "bit.com v1 API (Matrixport) Account Batch Orders API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Batch Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Place a batch of orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bit.com/v1/batchorders",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Place a batch of orders"
+        },
+        {
+          "info": {
+            "name": "Amend a batch of orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bit.com/v1/amend_batchorders",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Amend a batch of orders"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

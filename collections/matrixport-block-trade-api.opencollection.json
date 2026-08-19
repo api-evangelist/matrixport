@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "bit.com v1 API (Matrixport) Account Block Trade API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Block Trade",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Paradigm block trades",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/blocktrades",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Query Paradigm block trades"
+        },
+        {
+          "info": {
+            "name": "Create a Paradigm block trade",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bit.com/v1/blocktrades",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Create a Paradigm block trade"
+        },
+        {
+          "info": {
+            "name": "Query block trades by platform",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/platform_blocktrades",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Query block trades by platform"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

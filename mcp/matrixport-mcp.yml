@@ -2,10 +2,9 @@ generated: '2026-07-20'
 method: derived
 status: candidate
 source: openapi/matrixport-bitcom-openapi.yml
-notes: >-
-  No official hosted/remote MCP server was found for bit.com/Matrixport. This is a candidate tool
-  surface derived one-to-one from the v1 OpenAPI operations, for building an MCP server against the
-  API. Read tools map to public/market/account GETs; write tools map to signed order operations.
+notes: No official hosted/remote MCP server was found for bit.com/Matrixport. This is a candidate tool
+  surface derived one-to-one from the v1 OpenAPI operations, for building an MCP server against the API.
+  Read tools map to public/market/account GETs; write tools map to signed order operations.
 server:
   name: matrixport-bitcom
   transport: http
@@ -55,3 +54,9 @@ tools:
 - name: get_user_trades
   description: Query the user's trade fills (signed).
   source_operation: openapi/matrixport-bitcom-openapi.yml#getUserTrades
+deployment:
+  mode: none
+  verified: derived
+  tools: 15
+  checked: '2026-08-12'
+  source: catalog MCP census

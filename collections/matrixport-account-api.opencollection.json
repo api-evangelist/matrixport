@@ -1,0 +1,188 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "bit.com v1 API (Matrixport) Account API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get account balances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/accounts",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get account balances"
+        },
+        {
+          "info": {
+            "name": "Get open positions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/positions",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get open positions"
+        },
+        {
+          "info": {
+            "name": "Get account transaction logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/transactions",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get account transaction logs"
+        },
+        {
+          "info": {
+            "name": "Get user deliveries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/user/deliveries",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get user deliveries"
+        },
+        {
+          "info": {
+            "name": "Get user settlements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/user/settlements",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get user settlements"
+        },
+        {
+          "info": {
+            "name": "Get cancel-on-disconnect (COD) config",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/account_configs/cod",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get cancel-on-disconnect (COD) config"
+        },
+        {
+          "info": {
+            "name": "Configure cancel-on-disconnect (COD)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bit.com/v1/account_configs/cod",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Configure cancel-on-disconnect (COD)"
+        },
+        {
+          "info": {
+            "name": "Get market-maker-protection (MMP) state",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/mmp_state",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get market-maker-protection (MMP) state"
+        },
+        {
+          "info": {
+            "name": "Update MMP configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bit.com/v1/update_mmp_config",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Update MMP configuration"
+        },
+        {
+          "info": {
+            "name": "Reset MMP state",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bit.com/v1/reset_mmp",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Reset MMP state"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

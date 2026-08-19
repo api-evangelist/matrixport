@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "bit.com v1 API (Matrixport) Account WebSocket API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "WebSocket",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a WebSocket authentication token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/ws/auth",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get a WebSocket authentication token"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,171 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "bit.com v1 API (Matrixport) Account Order API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Order",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/orders",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Query orders"
+        },
+        {
+          "info": {
+            "name": "Place a new order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bit.com/v1/orders",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Place a new order"
+        },
+        {
+          "info": {
+            "name": "Cancel orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bit.com/v1/cancel_orders",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Cancel orders"
+        },
+        {
+          "info": {
+            "name": "Amend orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bit.com/v1/amend_orders",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Amend orders"
+        },
+        {
+          "info": {
+            "name": "Close positions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bit.com/v1/close_positions",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Close positions"
+        },
+        {
+          "info": {
+            "name": "Query open orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/open_orders",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Query open orders"
+        },
+        {
+          "info": {
+            "name": "Query stop orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/stop_orders",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Query stop orders"
+        },
+        {
+          "info": {
+            "name": "Query user trades",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/user/trades",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Query user trades"
+        },
+        {
+          "info": {
+            "name": "Estimate order margins",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bit.com/v1/margins",
+            "auth": {
+              "type": "apikey",
+              "key": "X-Bit-Access-Key",
+              "value": "{{X-Bit-Access-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Estimate order margins"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
