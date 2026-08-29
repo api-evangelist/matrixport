@@ -8,6 +8,17 @@ description: 'Matrixport is a digital-asset financial services firm whose tradin
   order-management (new/amend/cancel/close, batch orders, stop orders, MMP). First-party SDKs are
   published for Go, Python, and Java. Added to the API Evangelist network as a crypto-finance
   provider and enriched from its public developer surface and official SDK repositories.'
+deliveryModel:
+  model: library
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Library · distributed through package registries, no callable service
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
