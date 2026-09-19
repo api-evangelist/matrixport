@@ -105,6 +105,8 @@ apis:
   humanURL: https://www.bit.com/docs/en-us/spot.html
   baseURL: https://api.bit.com
   tags:
+  - Markets
+  tags_raw:
   - Market
   properties:
   - type: OpenAPI
