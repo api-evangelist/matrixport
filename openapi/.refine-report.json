@@ -1,13 +1,7 @@
 {
   "provider": "matrixport",
   "sources": [
-    "matrixport-account-api-openapi.yml",
-    "matrixport-batch-orders-api-openapi.yml",
-    "matrixport-block-trade-api-openapi.yml",
-    "matrixport-market-api-openapi.yml",
-    "matrixport-order-api-openapi.yml",
-    "matrixport-system-api-openapi.yml",
-    "matrixport-websocket-api-openapi.yml"
+    "_original/matrixport-bitcom-openapi.yml"
   ],
   "outputs": [
     "matrixport-account-api-openapi.yml",
@@ -21,6 +15,18 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "matrixport-bitcom-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "matrixport-account-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "matrixport-batch-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "matrixport-block-trade-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "matrixport-market-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "matrixport-order-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "matrixport-system-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "matrixport-websocket-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
