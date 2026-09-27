@@ -56,6 +56,7 @@ tags:
 - Perpetuals
 - WebSocket
 - REST API
+- Real-Time
 apis:
 - aid: matrixport:matrixport-account-api
   name: Matrixport Account API
