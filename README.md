@@ -64,6 +64,137 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Matrixport is a company surfaced as a portfolio company of paradigm, polychain, qiming and added to the API Evangelist network as a stub for enrichment. Sector: crypto-finance. This profile is a lead awaiting the enrichment pipeline.
+Matrixport is a digital-asset financial services firm whose trading and derivatives venue, bit.com, exposes a public v1 REST and WebSocket API for spot, USD-margined (USD-M) and coin-margined (COIN-M) futures, perpetual swaps, and options, plus Paradigm-style block trades. The API authenticates with an access key and HMAC-SHA256 request signing, and covers market data (index, instruments, tickers, orderbooks, klines, funding), account, position, and full order-management (new/amend/cancel/close, batch orders, stop orders, MMP). First-party SDKs are published for Go, Python, and Java. Added to the API Evangelist network as a crypto-finance provider and enriched from its public developer surface and official SDK repositories.
 
-Backed by: paradigm, polychain, qiming — https://www.matrixport.com
+**Areas:** Company · Crypto Finance · Cryptocurrency Exchange · Trading · Derivatives · Options · Futures · Perpetuals · WebSocket · REST API · Real-Time
+
+## Matrixport on APIs.io
+
+Everything profiled for Matrixport is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/matrixport/](https://apis.io/providers/matrixport/)** — or go straight to one of the APIs or properties below.
+
+### APIs (7)
+
+- [Matrixport Account API](https://apis.io/apis/matrixport/matrixport-account-api/) — The Account API from Matrixport — 9 operation(s) for account.
+- [Matrixport Batch Orders API](https://apis.io/apis/matrixport/matrixport-batch-orders-api/) — The Batch Orders API from Matrixport — 2 operation(s) for batch orders.
+- [Matrixport Block Trade API](https://apis.io/apis/matrixport/matrixport-block-trade-api/) — The Block Trade API from Matrixport — 2 operation(s) for block trade.
+- [Matrixport Market API](https://apis.io/apis/matrixport/matrixport-market-api/) — The Market API from Matrixport — 11 operation(s) for market.
+- [Matrixport Order API](https://apis.io/apis/matrixport/matrixport-order-api/) — The Order API from Matrixport — 8 operation(s) for order.
+- [Matrixport System API](https://apis.io/apis/matrixport/matrixport-system-api/) — The System API from Matrixport — 3 operation(s) for system.
+- [Matrixport WebSocket API](https://apis.io/apis/matrixport/matrixport-websocket-api/) — The WebSocket API from Matrixport — 1 operation(s) for websocket.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [bit.com (Matrixport) WebSocket streaming API](https://apis.io/asyncapis/matrixport/matrixport-websocket/)
+
+#### Event channels (7)
+
+Individual events and webhooks the provider emits.
+
+- [kline](https://apis.io/channels/matrixport/kline/)
+- [order](https://apis.io/channels/matrixport/order/)
+- [order_book](https://apis.io/channels/matrixport/order-book/)
+- [ticker](https://apis.io/channels/matrixport/ticker/)
+- [trade](https://apis.io/channels/matrixport/trade/)
+- [um_account](https://apis.io/channels/matrixport/um-account/)
+- [user_trade](https://apis.io/channels/matrixport/user-trade/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [matrixport-bitcom](https://apis.io/servers/matrixport/matrixport-bitcom/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Matrixport Agentic Access](https://apis.io/agentic-access/matrixport/matrixport-agentic-access/)
+
+#### Collections (7)
+
+Postman and Open Collection request collections.
+
+- [bit.com v1 API (Matrixport) Account API](https://apis.io/collections/matrixport/open-matrixport-account-api/)
+- [bit.com v1 API (Matrixport) Account Batch Orders API](https://apis.io/collections/matrixport/open-matrixport-batch-orders-api/)
+- [bit.com v1 API (Matrixport) Account Block Trade API](https://apis.io/collections/matrixport/open-matrixport-block-trade-api/)
+- [bit.com v1 API (Matrixport) Account Market API](https://apis.io/collections/matrixport/open-matrixport-market-api/)
+- [bit.com v1 API (Matrixport) Account Order API](https://apis.io/collections/matrixport/open-matrixport-order-api/)
+- [bit.com v1 API (Matrixport) Account System API](https://apis.io/collections/matrixport/open-matrixport-system-api/)
+- [bit.com v1 API (Matrixport) Account WebSocket API](https://apis.io/collections/matrixport/open-matrixport-websocket-api/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Matrixport Authentication](https://apis.io/security/matrixport/matrixport-authentication/)
+- [Matrixport Domain Security](https://apis.io/security/matrixport/matrixport-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.bit.com)
+- [Documentation](https://www.bit.com/docs/en-us/spot.html)
+- [API reference](https://www.bit.com/docs/en-us/futures.html)
+- [Changelog](https://www.bit.com/docs/en-us/change_log.html)
+- [Blog](https://www.bit.com/news/)
+- [GitHub](https://github.com/bitcom-exchange)
+
+## API Evangelist rating
+
+**Kin Score 30.0** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 48.6 |
+| Contract governance | 4.5 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 39.9 |
+| Access clarity | 0.0 |
+
+**Agent readiness 30.0** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 15.7** — Securities & Market Data
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/matrixport/](https://apis.io/providers/matrixport/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Matrixport: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/matrixport/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
